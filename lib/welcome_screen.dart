@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:travel_guide_app/login_screen.dart';
+import 'package:travel_guide_app/register_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -27,7 +30,13 @@ class WelcomeScreen extends StatelessWidget {
                 Image.asset('images/trip.png'),
                 SizedBox(height: 16.0),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return LoginScreen();
+                      },
+                    ));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orangeAccent,
                     foregroundColor: Colors.white,
@@ -47,7 +56,13 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16.0),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return RegisterScreen();
+                      },
+                    ));
+                  },
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(
                       color: Colors.orangeAccent,
