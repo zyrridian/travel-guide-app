@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_guide_app/home_screen.dart';
 import 'package:travel_guide_app/login_phone_screen.dart';
+import 'package:travel_guide_app/main.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -195,7 +196,7 @@ class RegisterScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return HomeScreen();
+                    return MainScreen();
                   }));
                 },
                 style: ElevatedButton.styleFrom(

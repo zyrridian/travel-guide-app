@@ -5,142 +5,157 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: 8),
-                Row(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.orangeAccent,
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Good Morning',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Nunito',
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Hello, John!',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Nunito',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.notifications_outlined),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
+                ),
+                child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: Colors.orangeAccent,
-                    ),
-                    SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Good Morning',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Nunito',
-                              fontSize: 14,
-                            ),
-                          ),
-                          Text(
-                            'Hello, John!',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Nunito',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
+                    Icon(Icons.search_outlined),
+                    SizedBox(width: 8),
+                    Text(
+                      'Search here...',
+                      style: TextStyle(
+                        color: Colors.grey,
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.notifications_outlined),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 1,
+              ),
+              SizedBox(height: 16),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Chip(
+                      label: Text('Mountains'),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Chip(
+                      label: Text('Beaches'),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Chip(
+                      label: Text('Historical Buildings'),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Chip(
+                      label: Text('Park'),
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                  ],
+                ),
+              ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Popular Places',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Nunito',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.search_outlined),
-                      SizedBox(width: 8),
-                      Text(
-                        'Search here...',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      )
-                    ],
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'view all',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Nunito',
+                        fontWeight: FontWeight.w300,
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(height: 16),
-                SingleChildScrollView(
+                ],
+              ),
+              SizedBox(
+                height: 269,
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Chip(
-                        label: Text('Mountain'),
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(width: 8),
-                      Chip(
-                        label: Text('Beaches'),
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(width: 8),
-                      Chip(
-                        label: Text('Historical Buildings'),
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(width: 8),
-                    ],
-                  ),
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: PopularPlaceCard(),
+                    );
+                  },
                 ),
-                SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'Popular Places',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Nunito',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'view all',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Nunito',
-                          fontWeight: FontWeight.w300,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 269,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: PopularPlaceCard(),
-                      );
-                    },
-                  ),
-                ),
-                SizedBox(height: 32),
-                BannerCard(),
-              ],
-            ),
+              ),
+              SizedBox(height: 16),
+              BannerCard(),
+              SizedBox(height: 16),
+            ],
           ),
         ),
       ),
@@ -253,7 +268,7 @@ class PopularPlaceCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                'images/cherries.jpg',
+                'images/fuji.jpg',
                 width: double.infinity,
                 height: 140,
                 fit: BoxFit.cover,
