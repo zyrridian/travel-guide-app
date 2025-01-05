@@ -1,13 +1,10 @@
-import 'dart:developer';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_guide_app/home_screen.dart';
-import 'package:travel_guide_app/login_phone_screen.dart';
+import 'package:travel_guide_app/features/home/screens/home_screen.dart';
+import 'package:travel_guide_app/features/authentication/screens/login_phone_screen.dart';
 import 'package:travel_guide_app/main.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  'Join Us!',
+                  'Welcome, Explorer!',
                   style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'Nunito',
@@ -45,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  'Start exploring the world your way',
+                  'Ready to discover your next adventure?',
                   style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'Nunito',
@@ -54,31 +51,6 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 48.0),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.person_outline,
-                    color: Colors.orangeAccent,
-                  ),
-                  hintText: 'Enter your full name',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.orangeAccent,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-              SizedBox(height: 8),
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -110,7 +82,7 @@ class RegisterScreen extends StatelessWidget {
                     Icons.lock_outline,
                     color: Colors.orangeAccent,
                   ),
-                  hintText: 'Create a password',
+                  hintText: 'Enter your password',
                   hintStyle: TextStyle(color: Colors.grey),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -128,70 +100,15 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 8),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.lock_outline,
-                    color: Colors.orangeAccent,
-                  ),
-                  hintText: 'Confirm your password',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.orangeAccent,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: false,
-                    onChanged: (bool? value) {},
-                  ),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'I agree to the ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'Terms of Service',
-                            style: TextStyle(color: Colors.blue),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                log('Terms of Service clicked');
-                              },
-                          ),
-                          TextSpan(
-                            text: ' and ',
-                          ),
-                          TextSpan(
-                            text: 'Privacy Policy',
-                            style: TextStyle(color: Colors.blue),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                log('Privacy Policy clicked');
-                              },
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
               ),
               ElevatedButton(
                 onPressed: () {
@@ -208,7 +125,7 @@ class RegisterScreen extends StatelessWidget {
                   minimumSize: Size(double.infinity, 48),
                 ),
                 child: Text(
-                  'Register',
+                  'Login',
                   style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'Poppins',

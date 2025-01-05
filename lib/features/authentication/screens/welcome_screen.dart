@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:travel_guide_app/login_screen.dart';
-import 'package:travel_guide_app/register_screen.dart';
+import 'package:travel_guide_app/features/authentication/screens/login_screen.dart';
+import 'package:travel_guide_app/features/authentication/screens/register_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

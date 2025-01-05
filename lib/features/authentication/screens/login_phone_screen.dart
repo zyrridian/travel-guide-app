@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_guide_app/home_screen.dart';
+import 'package:travel_guide_app/features/home/screens/home_screen.dart';
 import 'package:travel_guide_app/main.dart';
 
 class LoginPhoneScreen extends StatelessWidget {

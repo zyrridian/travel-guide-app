@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:travel_guide_app/home_screen.dart';
-import 'package:travel_guide_app/welcome_screen.dart';
+import 'package:travel_guide_app/features/home/screens/home_screen.dart';
+import 'package:travel_guide_app/features/authentication/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MainApp());
