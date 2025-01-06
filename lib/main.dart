@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:travel_guide_app/features/favorite/screens/favorite_screen.dart';
 import 'package:travel_guide_app/features/home/screens/home_screen.dart';
 import 'package:travel_guide_app/features/authentication/screens/welcome_screen.dart';
+import 'package:travel_guide_app/features/profile/screens/profile_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -39,9 +41,14 @@ class _MainScreenState extends State<MainScreen> {
   // Screens for each tab
   final List<Widget> _screens = [
     HomeScreen(),
-    Center(child: Text("Categories", style: TextStyle(fontSize: 24))),
-    Center(child: Text("Bookmark", style: TextStyle(fontSize: 24))),
-    Center(child: Text("Profile", style: TextStyle(fontSize: 24)))
+    Center(
+      child: Text(
+        "Categories",
+        style: TextStyle(fontSize: 24),
+      ),
+    ),
+    FavoriteScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -72,8 +79,8 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Categories',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_outline),
-            label: 'Bookmark',
+            icon: Icon(Icons.favorite_border),
+            label: 'Favorite',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
