@@ -9,9 +9,13 @@ class PlaceDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(place.title),
-        backgroundColor: Colors.blueAccent,
+        title: Text(
+          place.title,
+          style: TextStyle(fontFamily: 'Nunito'),
+        ),
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
             icon: Icon(Icons.favorite_border),
@@ -36,11 +40,18 @@ class PlaceDetailScreen extends StatelessWidget {
               height: 250,
               child: PageView(
                 children: [
-                  Image.asset(place.image, fit: BoxFit.cover),
-                  Image.asset('images/categories/placeholder.jpg',
-                      fit: BoxFit.cover),
-                  Image.asset('images/categories/placeholder2.jpg',
-                      fit: BoxFit.cover),
+                  Image.asset(
+                    place.image,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    'images/categories/beaches.png',
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    'images/categories/historical.png',
+                    fit: BoxFit.cover,
+                  ),
                 ],
               ),
             ),
@@ -53,6 +64,7 @@ class PlaceDetailScreen extends StatelessWidget {
                   Text(
                     place.title,
                     style: TextStyle(
+                      fontFamily: 'Nunito',
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -64,7 +76,11 @@ class PlaceDetailScreen extends StatelessWidget {
                       SizedBox(width: 8),
                       Text(
                         place.location,
-                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                        style: TextStyle(
+                          fontFamily: 'Nunito',
+                          fontSize: 16,
+                          color: Colors.grey[600],
+                        ),
                       ),
                     ],
                   ),
@@ -79,13 +95,18 @@ class PlaceDetailScreen extends StatelessWidget {
                           Text(
                             '${place.rating}',
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                       Text(
                         '${place.reviews} reviews',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey[600],
+                        ),
                       ),
                     ],
                   ),
@@ -101,14 +122,22 @@ class PlaceDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     'About',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   SizedBox(height: 8),
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. '
                     'Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh '
                     'elementum imperdiet.',
-                    style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 16,
+                      color: Colors.grey[800],
+                    ),
                   ),
                 ],
               ),
@@ -122,7 +151,11 @@ class PlaceDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Reviews',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   SizedBox(height: 16),
                   ReviewCard(
@@ -149,7 +182,11 @@ class PlaceDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Location',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   SizedBox(height: 16),
                   Container(
@@ -161,7 +198,10 @@ class PlaceDetailScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         'Map Placeholder',
-                        style: TextStyle(color: Colors.grey[600]),
+                        style: TextStyle(
+                          fontFamily: 'Nunito',
+                          color: Colors.grey[600],
+                        ),
                       ),
                     ),
                   ),
@@ -190,9 +230,13 @@ class ReviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 0,
+      color: Colors.white,
       margin: const EdgeInsets.only(bottom: 16.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(color: Color(0xFFE0E0E0)),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -203,7 +247,11 @@ class ReviewCard extends StatelessWidget {
               children: [
                 Text(
                   user,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(
+                    fontFamily: 'Nunito',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
                 Row(
                   children: List.generate(
@@ -216,7 +264,11 @@ class ReviewCard extends StatelessWidget {
             SizedBox(height: 8),
             Text(
               review,
-              style: TextStyle(fontSize: 14, color: Colors.grey[800]),
+              style: TextStyle(
+                fontFamily: 'Nunito',
+                fontSize: 14,
+                color: Colors.grey[800],
+              ),
             ),
           ],
         ),
