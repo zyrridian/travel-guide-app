@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:travel_guide_app/core/utils/popular_place_dummy.dart';
 import 'package:travel_guide_app/features/home/widgets/popular_place_card.dart';
 
 class FavoriteScreen extends StatelessWidget {
@@ -38,7 +39,13 @@ class FavoriteScreen extends StatelessWidget {
                   ),
                   itemCount: 3,
                   itemBuilder: (context, index) {
-                    return PopularPlaceCard();
+                    return PopularPlaceCard(
+                      image: places[index].image,
+                      title: places[index].title,
+                      location: places[index].location,
+                      rating: places[index].rating,
+                      reviews: places[index].reviews,
+                    );
                   },
                 ),
               ),

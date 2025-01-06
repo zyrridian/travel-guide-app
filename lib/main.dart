@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:travel_guide_app/features/categories/screens/categories_screen.dart';
 import 'package:travel_guide_app/features/favorite/screens/favorite_screen.dart';
 import 'package:travel_guide_app/features/home/screens/home_screen.dart';
 import 'package:travel_guide_app/features/authentication/screens/welcome_screen.dart';
@@ -41,12 +42,7 @@ class _MainScreenState extends State<MainScreen> {
   // Screens for each tab
   final List<Widget> _screens = [
     HomeScreen(),
-    Center(
-      child: Text(
-        "Categories",
-        style: TextStyle(fontSize: 24),
-      ),
-    ),
+    CategoriesScreen(),
     FavoriteScreen(),
     ProfileScreen(),
   ];

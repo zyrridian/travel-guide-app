@@ -1,8 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:travel_guide_app/core/utils/popular_place_dummy.dart';
 
 class PopularPlaceCard extends StatelessWidget {
+  final String image;
+  final String title;
+  final String location;
+  final double rating;
+  final int reviews;
+
   const PopularPlaceCard({
     super.key,
+    required this.image,
+    required this.title,
+    required this.location,
+    required this.rating,
+    required this.reviews,
   });
 
   @override
@@ -23,7 +36,7 @@ class PopularPlaceCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    'images/fuji.jpg',
+                    image,
                     width: double.infinity,
                     height: 140,
                     fit: BoxFit.cover,
@@ -59,7 +72,7 @@ class PopularPlaceCard extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'Mount Fuji',
+              title,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
@@ -77,7 +90,7 @@ class PopularPlaceCard extends StatelessWidget {
                 ),
                 SizedBox(width: 4),
                 Text(
-                  "Kyoto, Japan",
+                  location,
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 14,
@@ -98,7 +111,7 @@ class PopularPlaceCard extends StatelessWidget {
                     ),
                     SizedBox(width: 4),
                     Text(
-                      "4.8",
+                      rating.toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,
@@ -116,7 +129,7 @@ class PopularPlaceCard extends StatelessWidget {
                     ),
                     SizedBox(width: 4),
                     Text(
-                      "200 reviews",
+                      reviews.toString(),
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontSize: 14,
