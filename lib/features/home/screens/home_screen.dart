@@ -205,6 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     ListTile(
                       leading: Icon(Icons.message, color: Colors.blue),
