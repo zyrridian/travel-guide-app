@@ -1,16 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:travel_guide_app/core/models/place.dart';
-import 'package:travel_guide_app/features/categories/screens/place_detail_screen.dart';
+import 'package:travel_guide_app/features/places/screens/place_detail_screen.dart';
 
-class PopularPlaceCard extends StatelessWidget {
+class PlaceCard extends StatefulWidget {
   final String image;
   final String title;
   final String location;
   final double rating;
   final int reviews;
 
-  const PopularPlaceCard({
+  const PlaceCard({
     super.key,
     required this.image,
     required this.title,
@@ -20,6 +20,19 @@ class PopularPlaceCard extends StatelessWidget {
   });
 
   @override
+  State<PlaceCard> createState() => _PlaceCardState();
+}
+
+class _PlaceCardState extends State<PlaceCard> {
+  bool isFavorite = false;
+
+  void toggleFavorite() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
@@ -27,11 +40,11 @@ class PopularPlaceCard extends StatelessWidget {
         MaterialPageRoute(
           builder: (context) => PlaceDetailScreen(
             place: Place(
-              image: image,
-              title: title,
-              location: location,
-              rating: rating,
-              reviews: reviews,
+              image: widget.image,
+              title: widget.title,
+              location: widget.location,
+              rating: widget.rating,
+              reviews: widget.reviews,
             ),
           ),
         ),
@@ -52,7 +65,7 @@ class PopularPlaceCard extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      image,
+                      widget.image,
                       width: double.infinity,
                       height: 140,
                       fit: BoxFit.cover,
@@ -76,9 +89,9 @@ class PopularPlaceCard extends StatelessWidget {
                         ],
                       ),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: toggleFavorite,
                         icon: Icon(
-                          Icons.favorite_border,
+                          isFavorite ? Icons.favorite : Icons.favorite_border,
                           color: Colors.red,
                         ),
                       ),
@@ -88,13 +101,15 @@ class PopularPlaceCard extends StatelessWidget {
               ),
               SizedBox(height: 8),
               Text(
-                title,
+                widget.title,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                   fontFamily: 'Nunito',
                   fontWeight: FontWeight.bold,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 4),
               Row(
@@ -105,11 +120,15 @@ class PopularPlaceCard extends StatelessWidget {
                     color: Colors.grey[600],
                   ),
                   SizedBox(width: 4),
-                  Text(
-                    location,
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 14,
+                  Expanded(
+                    child: Text(
+                      widget.location,
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 14,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
@@ -127,7 +146,7 @@ class PopularPlaceCard extends StatelessWidget {
                       ),
                       SizedBox(width: 4),
                       Text(
-                        rating.toString(),
+                        widget.rating.toString(),
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 14,
@@ -145,7 +164,7 @@ class PopularPlaceCard extends StatelessWidget {
                       ),
                       SizedBox(width: 4),
                       Text(
-                        reviews.toString(),
+                        widget.reviews.toString(),
                         style: TextStyle(
                           color: Colors.grey[700],
                           fontSize: 14,

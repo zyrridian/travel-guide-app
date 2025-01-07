@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:travel_guide_app/core/utils/popular_place_dummy.dart';
-import 'package:travel_guide_app/features/categories/screens/categories_screen.dart';
 import 'package:travel_guide_app/features/places/widgets/place_card.dart';
 
-class CategoryDetailScreen extends StatelessWidget {
-  final Category category;
-
-  const CategoryDetailScreen({super.key, required this.category});
+class PlaceListScreen extends StatelessWidget {
+  const PlaceListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(category.name),
+        title: Text('Places'),
         backgroundColor: Colors.white,
       ),
       body: Padding(

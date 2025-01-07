@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:travel_guide_app/core/utils/popular_place_dummy.dart';
-import 'package:travel_guide_app/features/categories/screens/categories_detail_screen.dart';
 import 'package:travel_guide_app/features/home/widgets/banner_card.dart';
-import 'package:travel_guide_app/features/home/widgets/popular_place_card.dart';
+import 'package:travel_guide_app/features/places/screens/place_list_screen.dart';
+import 'package:travel_guide_app/features/places/widgets/place_card.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -129,7 +129,12 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlaceListScreen(),
+                      ),
+                    ),
                     child: Text(
                       'view all',
                       style: TextStyle(
@@ -150,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.only(right: 8),
-                      child: PopularPlaceCard(
+                      child: PlaceCard(
                         image: places[index].image,
                         title: places[index].title,
                         location: places[index].location,
